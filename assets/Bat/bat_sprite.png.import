@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7xvtotfsufbg"
-path="res://.godot/imported/pixil-frame-0.png-b7706e67fe25efbdb0da6491a8594100.ctex"
+uid="uid://df868ilfcpnnf"
+path="res://.godot/imported/bat_sprite.png-90268aed1f16b153d4c0338890c0e27e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bat/pixil-frame-0.png"
-dest_files=["res://.godot/imported/pixil-frame-0.png-b7706e67fe25efbdb0da6491a8594100.ctex"]
+source_file="res://assets/Bat/bat_sprite.png"
+dest_files=["res://.godot/imported/bat_sprite.png-90268aed1f16b153d4c0338890c0e27e.ctex"]
 
 [params]
 

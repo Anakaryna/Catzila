@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df868ilfcpnnf"
-path="res://.godot/imported/32x32-bat-sprite.png-a25d41dbd806edb878435e17b3f94ef2.ctex"
+uid="uid://muiwuunr4qqo"
+path="res://.godot/imported/attack_right.png-67c1a9421ef3c6f821aee1aae57e162a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bat/32x32-bat-sprite.png"
-dest_files=["res://.godot/imported/32x32-bat-sprite.png-a25d41dbd806edb878435e17b3f94ef2.ctex"]
+source_file="res://assets/Bat/attack_right.png"
+dest_files=["res://.godot/imported/attack_right.png-67c1a9421ef3c6f821aee1aae57e162a.ctex"]
 
 [params]
 

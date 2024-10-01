@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://muiwuunr4qqo"
-path="res://.godot/imported/pixil-frame-0 (2).png-5a48aed59163ad848d586000c5c4c7ca.ctex"
+uid="uid://7xvtotfsufbg"
+path="res://.godot/imported/attack_down.png-279956552eeff8e78778daa0b38423d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bat/pixil-frame-0 (2).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (2).png-5a48aed59163ad848d586000c5c4c7ca.ctex"]
+source_file="res://assets/Bat/attack_down.png"
+dest_files=["res://.godot/imported/attack_down.png-279956552eeff8e78778daa0b38423d5.ctex"]
 
 [params]
 

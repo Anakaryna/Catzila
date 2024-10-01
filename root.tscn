@@ -1,11 +1,11 @@
 [gd_scene load_steps=44 format=3 uid="uid://dhk160xc837ki"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_ulil3"]
-[ext_resource type="Texture2D" uid="uid://7xvtotfsufbg" path="res://assets/Bat/pixil-frame-0.png" id="2_8pd7g"]
-[ext_resource type="Texture2D" uid="uid://muiwuunr4qqo" path="res://assets/Bat/pixil-frame-0 (2).png" id="3_k6400"]
+[ext_resource type="Texture2D" uid="uid://7xvtotfsufbg" path="res://assets/Bat/attack_down.png" id="2_8pd7g"]
+[ext_resource type="Texture2D" uid="uid://muiwuunr4qqo" path="res://assets/Bat/attack_right.png" id="3_k6400"]
 [ext_resource type="Texture2D" uid="uid://b1spsq2veqrk4" path="res://assets/mystic_woods_free_2.2/sprites/objects/objects.png" id="3_sijcb"]
-[ext_resource type="Texture2D" uid="uid://x25p1sue4iia" path="res://assets/Bat/pixil-frame-0 (4).png" id="4_iiwsj"]
-[ext_resource type="Texture2D" uid="uid://df868ilfcpnnf" path="res://assets/Bat/32x32-bat-sprite.png" id="5_3dbd8"]
+[ext_resource type="Texture2D" uid="uid://x25p1sue4iia" path="res://assets/Bat/attack_up.png" id="4_iiwsj"]
+[ext_resource type="Texture2D" uid="uid://df868ilfcpnnf" path="res://assets/Bat/bat_sprite.png" id="5_3dbd8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujpuv"]
 size = Vector2(14, 9.75)
