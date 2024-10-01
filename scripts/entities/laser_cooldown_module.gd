@@ -2,13 +2,13 @@ class_name LaserCooldown
 
 extends Node2D
 
-@export var is_laser_cooldown_duration_randomn : bool
+@export var is_laser_cooldown_duration_random : bool
 @export var min_laser_cooldown_duration : float
 @export var max_laser_cooldown_duration : float
 ## If not random, set a duration cooldown for the laser
 @export var laser_cooldown_duration : float
 
-@export var is_laser_shoot_duration_randomn : bool
+@export var is_laser_shoot_duration_random : bool
 @export var min_laser_shoot_duration : float
 @export var max_laser_shoot_duration : float
 ## If not random, set a duration shoot for the laser
@@ -52,13 +52,13 @@ func _process(delta: float) -> void:
 		
 
 func _set_laser_cooldown_duration() -> float:
-	if is_laser_cooldown_duration_randomn:
+	if is_laser_cooldown_duration_random:
 		laser_cooldown_duration = rng.randf_range(min_laser_cooldown_duration, max_laser_cooldown_duration)
 	
 	return laser_cooldown_duration
 
 func _set_laser_shoot_duration() -> float:
-	if is_laser_shoot_duration_randomn:
+	if is_laser_shoot_duration_random:
 			laser_shoot_duration = rng.randf_range(min_laser_shoot_duration, max_laser_shoot_duration)
 		
 	return laser_shoot_duration

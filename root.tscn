@@ -360,11 +360,11 @@ target = NodePath("../../player")
 
 [node name="LaserCooldown" type="Node2D" parent="laser_cat"]
 script = ExtResource("8_vc0hx")
-is_laser_cooldown_duration_randomn = true
+is_laser_cooldown_duration_random = true
 min_laser_cooldown_duration = 1.0
 max_laser_cooldown_duration = 3.0
 laser_cooldown_duration = 3.0
-is_laser_shoot_duration_randomn = true
+is_laser_shoot_duration_random = true
 min_laser_shoot_duration = 1.0
 max_laser_shoot_duration = 3.0
 laser_shoot_duration = 3.0
