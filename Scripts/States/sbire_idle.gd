@@ -61,7 +61,3 @@ func update_animation_direction():
 	var animation_name = base_anim + anim_direction
 	sprite.play(animation_name)
 	sprite.flip_h = flip_x
-
-func Exit():
-	# Clean up if necessary when leaving the Idle state
-	pass
