@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dhk160xc837ki"]
+[gd_scene load_steps=58 format=3 uid="uid://dhk160xc837ki"]
 
 [ext_resource type="Texture2D" uid="uid://draivv5jqmk0r" path="res://assets/mystic_woods_free_2.2/sprites/characters/player.png" id="1_84f7y"]
 [ext_resource type="Script" path="res://root.gd" id="1_ulil3"]
@@ -6,6 +6,66 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujpuv"]
 size = Vector2(14, 9.75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhpp0"]
+atlas = ExtResource("1_84f7y")
+region = Rect2(0, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4x70"]
+atlas = ExtResource("1_84f7y")
+region = Rect2(48, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iubvx"]
+atlas = ExtResource("1_84f7y")
+region = Rect2(96, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67juc"]
+atlas = ExtResource("1_84f7y")
+region = Rect2(144, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dch4"]
+atlas = ExtResource("1_84f7y")
+region = Rect2(0, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo4hy"]
+atlas = ExtResource("1_84f7y")
+region = Rect2(48, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nnqx"]
+atlas = ExtResource("1_84f7y")
+region = Rect2(96, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kqrj"]
+atlas = ExtResource("1_84f7y")
+region = Rect2(144, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86fip"]
+atlas = ExtResource("1_84f7y")
+region = Rect2(0, 384, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r15f2"]
+atlas = ExtResource("1_84f7y")
+region = Rect2(48, 384, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiqmh"]
+atlas = ExtResource("1_84f7y")
+region = Rect2(96, 384, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6c55"]
+atlas = ExtResource("1_84f7y")
+region = Rect2(144, 384, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjggm"]
+atlas = ExtResource("1_84f7y")
+region = Rect2(0, 432, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7y35"]
+atlas = ExtResource("1_84f7y")
+region = Rect2(48, 432, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrhnt"]
+atlas = ExtResource("1_84f7y")
+region = Rect2(96, 432, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_coeq4"]
 atlas = ExtResource("1_84f7y")
@@ -155,6 +215,71 @@ region = Rect2(240, 240, 48, 48)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jhpp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4x70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iubvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67juc")
+}],
+"loop": false,
+"name": &"attack_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dch4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo4hy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nnqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kqrj")
+}],
+"loop": false,
+"name": &"attack_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86fip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r15f2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiqmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6c55")
+}],
+"loop": false,
+"name": &"attack_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjggm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7y35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrhnt")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_coeq4")
 }, {
 "duration": 1.0,
@@ -298,6 +423,7 @@ size = Vector2(12, 9)
 [node name="root" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ulil3")
+SPEED = 300
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 20.0
@@ -321,7 +447,7 @@ shape = SubResource("RectangleShape2D_ujpuv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
 sprite_frames = SubResource("SpriteFrames_vp101")
-animation = &"move_down"
+animation = &"die"
 autoplay = "idle_down"
 offset = Vector2(0, -16)
 
