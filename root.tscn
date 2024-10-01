@@ -1,12 +1,14 @@
-[gd_scene load_steps=81 format=3 uid="uid://dhk160xc837ki"]
+[gd_scene load_steps=87 format=3 uid="uid://dhk160xc837ki"]
 
 [ext_resource type="Texture2D" uid="uid://draivv5jqmk0r" path="res://assets/mystic_woods_free_2.2/sprites/characters/player.png" id="1_84f7y"]
 [ext_resource type="Script" path="res://root.gd" id="1_v78c6"]
 [ext_resource type="Texture2D" uid="uid://b1spsq2veqrk4" path="res://assets/mystic_woods_free_2.2/sprites/objects/objects.png" id="3_sijcb"]
+[ext_resource type="Texture2D" uid="uid://b43t1qngx6co0" path="res://assets/homeMade/spider.png" id="5_0sm0l"]
 [ext_resource type="Script" path="res://mine_turtle.gd" id="5_kvy2k"]
 [ext_resource type="Texture2D" uid="uid://d1aykdm1261h0" path="res://assets/homeMade/explosion.png" id="5_xvmdq"]
 [ext_resource type="Texture2D" uid="uid://da8pwjpe8mt3s" path="res://assets/homeMade/hello.png" id="6_mnyfh"]
 [ext_resource type="Texture2D" uid="uid://d1bc4xptvw1c" path="res://assets/homeMade/mineTurtle.png" id="7_0oc0y"]
+[ext_resource type="Script" path="res://spider.gd" id="8_tmnby"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujpuv"]
 size = Vector2(14, 9.75)
@@ -567,6 +569,27 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_5w15g"]
 radius = 76.0884
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jjhx0"]
+radius = 76.0884
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccjih"]
+atlas = ExtResource("5_0sm0l")
+region = Rect2(0, 0, 21, 220)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_054mt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccjih")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lsukx"]
+radius = 16.1245
+
 [node name="root" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_v78c6")
@@ -621,7 +644,7 @@ script = ExtResource("5_kvy2k")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="MineTurtle"]
 sprite_frames = SubResource("SpriteFrames_rsiaj")
-animation = &"Explosion"
+animation = &"Hello"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MineTurtle"]
@@ -635,4 +658,21 @@ shape = SubResource("CircleShape2D_5w15g")
 [node name="ExplosionCollision" type="CollisionShape2D" parent="MineTurtle/explosionArea"]
 position = Vector2(14, 19)
 scale = Vector2(3, 3)
-shape = SubResource("CircleShape2D_5w15g")
+shape = SubResource("CircleShape2D_jjhx0")
+
+[node name="Spider" type="Area2D" parent="."]
+position = Vector2(614.475, 100)
+scale = Vector2(2, 2)
+collision_layer = 8
+script = ExtResource("8_tmnby")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Spider"]
+sprite_frames = SubResource("SpriteFrames_054mt")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spider"]
+position = Vector2(0.264999, 100)
+shape = SubResource("CircleShape2D_lsukx")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Spider"]

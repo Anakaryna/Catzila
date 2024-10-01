@@ -5,35 +5,53 @@ extends Node2D
 
 @export var SPEED = 100 # px per second
 
-
+enum MovementModifier{
+	Normal,
+	Freeze,
+	Reverse
+}
 
 var direction: Vector2
 var anim_direction: String = "down"
 
+var movementResetTimers: Array[Timer]
 var attacking: bool = false
 var dead: bool = false
 var player_health: float = 100
+var moveModifier: MovementModifier = MovementModifier.Normal
+var handicapTimer = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#EventBus.level_started.emit()
-	#EventBus.level_started.connect(func(): pass)
+	var timer = Timer.new()
+	add_child(timer)
+	timer.one_shot = true
+	timer.timeout.connect(resetMoveModifier)
+	timer.start(3)
 	EventBus.signal_damage.connect(_on_signal_damage)
+	EventBus.handicap.connect(_on_handicap)
 	sprite.animation_finished.connect(_on_anomation_finished)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_dt: float) -> void:
 	# movement
+	processMovements()
+	# animation
+	animatePlayer()
+
+func processMovements():
 	var ix = Input.get_axis("player_left", "player_right")
 	var iy = Input.get_axis("player_up", "player_down")
 	var iv = Vector2(ix, iy).normalized()
+	if moveModifier == MovementModifier.Reverse:
+		iv = Vector2(-ix, -iy).normalized()
 	direction = iv if not attacking else direction # let's us keep the same direction while playing the attack animation
-	player.velocity = iv * SPEED
+	if moveModifier == MovementModifier.Freeze:
+		player.velocity = Vector2(0, 0)
+	else:
+		player.velocity = iv * SPEED
 	player.move_and_slide()
-	
-	# animation
-	animatePlayer()
 
 func animatePlayer():
 	var base_anim
@@ -76,8 +94,33 @@ func _on_anomation_finished() -> void:
 
 
 func _on_signal_damage(body: CharacterBody2D, damagePoints: float) -> void:
-	print("got a signal")
+	#print("got a signal")
 	if body == player:
-		print("im bleeding")
+		#print("im bleeding")
 		player_health -= damagePoints
 	pass # Replace with function body.
+
+func _on_handicap(body: CharacterBody2D):
+	if body == player:
+		var h = randi_range(0, 1)
+		if h == 0:
+			moveModifier = MovementModifier.Freeze
+		if h == 1:
+			moveModifier = MovementModifier.Reverse
+			
+		# Try to use already instantiated timer
+		for i in movementResetTimers.size():
+			print(movementResetTimers[i].is_stopped())
+			if movementResetTimers[i].is_stopped():
+				movementResetTimers[i].one_shot = true
+				movementResetTimers[i].start(handicapTimer)
+				return
+		var timer = Timer.new()
+		add_child(timer)
+		timer.one_shot = true
+		timer.timeout.connect(resetMoveModifier)
+		timer.start(handicapTimer)
+		movementResetTimers.append(timer)
+
+func resetMoveModifier():
+	moveModifier = MovementModifier.Normal
