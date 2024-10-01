@@ -5,6 +5,8 @@ extends Node2D
 
 @export var SPEED = 100 # px per second
 
+signal signal_damage(body: CharacterBody2D, damagePoints: float)
+
 var direction: Vector2
 var anim_direction: String = "down"
 
@@ -67,3 +69,11 @@ func _on_anomation_finished() -> void:
 		#print("done attacking")
 	if sprite.animation == "die":
 		dead = true
+
+
+func _on_signal_damage(body: CharacterBody2D, damagePoints: float) -> void:
+	print("got a signal")
+	if body == player:
+		print("im bleeding")
+		player_health -= damagePoints
+	pass # Replace with function body.
