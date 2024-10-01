@@ -3,6 +3,7 @@ class_name LaserShooter
 extends Node2D
 
 const RAY_LENGTH = 9999
+const RAY_ANGULAR_SPEED = 0.01
 
 @export var target : Node2D
 
@@ -17,8 +18,7 @@ func _ready() -> void:
 	line.add_point(Vector2.ZERO)
 
 func _physics_process(delta: float) -> void:
-	# TODO: Track target better
-	var curTargetPosition = target.position
+	var curTargetPosition = get_target_position(target.position)
 	
 	# Raycast for "infinite" ray
 	var origin = position
@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	var result = space_state.intersect_ray(query)
 	
 	# Draw result
-	line.points[1] = to_local(result.position) if result.has("position") else to_local(end)
+	#line.points[1] = to_local(result.position) if result.has("position") else to_local(end)
 	
 	update_hitbox(origin, end)
 
@@ -53,4 +53,13 @@ func update_hitbox(origin: Vector2, end: Vector2) -> void:
 	hitbox.polygon = polygon
 
 func get_target_position(t_position: Vector2) -> Vector2:
-	return Vector2.ZERO
+	# DO NOT CHANGE THE ROTATION!
+	var angle = get_angle_to(t_position)
+	curTargetAngle += clamp(angle_difference(curTargetAngle, angle), -1, 1) * RAY_ANGULAR_SPEED
+	return to_global(Vector2(cos(curTargetAngle), sin(curTargetAngle)))
+
+
+
+func _on_laser_entered(_area: Area2D) -> void:
+	print("Hit!")
+	pass # Replace with function body.

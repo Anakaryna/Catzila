@@ -355,4 +355,7 @@ region_rect = Rect2(0, 16, 16, 16)
 [node name="LaserShooterModule" parent="laser_cat" index="2" node_paths=PackedStringArray("target")]
 target = NodePath("../../player")
 
+[node name="LaserGraphics" parent="laser_cat/LaserShooterModule" index="0"]
+z_index = 1
+
 [editable path="laser_cat"]

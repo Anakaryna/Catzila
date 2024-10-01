@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bx365aru1leac"]
 
 [ext_resource type="Texture2D" uid="uid://d2vnafkuhy1ny" path="res://assets/mystic_woods_free_2.2/sprites/characters/slime.png" id="1_pwmr0"]
-[ext_resource type="Script" path="res://subscenes/entities/laser_shooter_module.gd" id="2_v40fu"]
+[ext_resource type="Script" path="res://scripts/entities/laser_shooter_module.gd" id="2_v40fu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmu4s"]
 
@@ -25,3 +25,5 @@ default_color = Color(1, 0, 0, 1)
 collision_layer = 4
 
 [node name="LaserShape" type="CollisionPolygon2D" parent="LaserShooterModule/LaserHitbox"]
+
+[connection signal="area_entered" from="LaserShooterModule/LaserHitbox" to="LaserShooterModule" method="_on_laser_entered"]
