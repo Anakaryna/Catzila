@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	var result = space_state.intersect_ray(query)
 	
 	# Draw result
-	#line.points[1] = to_local(result.position) if result.has("position") else to_local(end)
+	line.points[1] = to_local(result.position) if result.has("position") else to_local(end)
 	
 	update_hitbox(origin, end)
 
