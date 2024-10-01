@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	var curTargetPosition = get_target_position(target.position)
 	
 	# Raycast for "infinite" ray
-	var origin = position
+	var origin = to_global(position)
 	var end = origin + (curTargetPosition - origin).normalized() * RAY_LENGTH
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(origin, end, 0b010)
