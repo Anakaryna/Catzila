@@ -1,7 +1,7 @@
 extends Area2D
 
 const HELLO_MINE_TURTLE = preload("res://assets/homeMade/hello mine turtle.mp3")
-@onready var player: CharacterBody2D = %player
+var player: CharacterBody2D
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var explosion_area: Area2D = $explosionArea
 @onready var sprite: AnimatedSprite2D = $Sprite
@@ -17,6 +17,8 @@ var explodedBodies = Array()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if player == null:
+		player = %player
 	pass # Replace with function body.
 
 
@@ -43,7 +45,7 @@ func collisionEnter(body):
 		if not audio_stream_player_2d.playing:
 			audio_stream_player_2d.stream = HELLO_MINE_TURTLE
 			audio_stream_player_2d.play()
-		print("Hello :)")
+		#print("Hello :)")
 		fused = true
 		fuseStarted = Time.get_ticks_msec()
 	pass
@@ -58,5 +60,5 @@ func sendDamage(body):
 	if not explodedBodies.has(body):
 		explodedBodies.append(body)
 		EventBus.signal_damage.emit(body, 100)
-		print("im dead lol")
+		#print("im dead lol")
 	pass

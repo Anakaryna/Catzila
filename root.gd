@@ -3,6 +3,9 @@ extends Node2D
 @onready var player: CharacterBody2D = %player
 @onready var sprite: AnimatedSprite2D = %player/AnimatedSprite2D
 
+const MINE_TURTLE = preload("res://mine_turtle.tscn")
+const SPIDER = preload("res://spider.tscn")
+
 @export var SPEED = 100 # px per second
 
 enum MovementModifier{
@@ -23,11 +26,15 @@ var handicapTimer = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var timer = Timer.new()
-	add_child(timer)
-	timer.one_shot = true
-	timer.timeout.connect(resetMoveModifier)
-	timer.start(3)
+	var mine = MINE_TURTLE.instantiate()
+	mine.destination = Vector2(500, 0)
+	mine.player = player
+	add_child(mine)
+	
+	var spider = SPIDER.instantiate()
+	spider.destination = Vector2(300, 400)
+	add_child(spider)
+	
 	EventBus.signal_damage.connect(_on_signal_damage)
 	EventBus.handicap.connect(_on_handicap)
 	sprite.animation_finished.connect(_on_anomation_finished)

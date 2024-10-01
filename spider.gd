@@ -25,4 +25,4 @@ func collisionEnter(body):
 	if !dieOnDestination:
 		EventBus.handicap.emit(body)
 		dieOnDestination = true
-		destination = Vector2(300, 300)
+		destination = Vector2(500, 300)
