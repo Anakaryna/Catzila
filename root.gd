@@ -5,7 +5,7 @@ extends Node2D
 
 @export var SPEED = 100 # px per second
 
-signal signal_damage(body: CharacterBody2D, damagePoints: float)
+
 
 var direction: Vector2
 var anim_direction: String = "down"
@@ -18,6 +18,7 @@ var player_health: float = 100
 func _ready() -> void:
 	#EventBus.level_started.emit()
 	#EventBus.level_started.connect(func(): pass)
+	EventBus.signal_damage.connect(_on_signal_damage)
 	sprite.animation_finished.connect(_on_anomation_finished)
 	pass
 
@@ -48,16 +49,19 @@ func animatePlayer():
 		base_anim = "idle_"
 	else:
 		base_anim = "move_"
-	var flip_x = false
+	var flip_x: bool = sprite.flip_h
 	if direction.y > 0:
 		anim_direction = "down"
+		flip_x = false
 	elif direction.y < 0:
 		anim_direction = "up"
+		flip_x = false
 	elif direction.x < 0:
 		anim_direction = "right"
 		flip_x = true
 	elif direction.x > 0:
 		anim_direction = "right"
+		flip_x = false
 	
 	var animation_name = base_anim + anim_direction
 	sprite.play(animation_name)

@@ -636,5 +636,3 @@ shape = SubResource("CircleShape2D_5w15g")
 position = Vector2(14, 19)
 scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_5w15g")
-
-[connection signal="signal_damage" from="." to="." method="_on_signal_damage"]

@@ -57,6 +57,6 @@ func helloFinished():
 func sendDamage(body):
 	if not explodedBodies.has(body):
 		explodedBodies.append(body)
-		$"..".emit_signal("signal_damage", body, 100)
+		EventBus.signal_damage.emit(body, 100)
 		print("im dead lol")
 	pass
