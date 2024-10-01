@@ -18,19 +18,23 @@ func _ready() -> void:
 	line.add_point(Vector2.ZERO)
 
 func _physics_process(delta: float) -> void:
-	var curTargetPosition = get_target_position(target.position)
-	
-	# Raycast for "infinite" ray
-	var origin = to_global(position)
-	var end = origin + (curTargetPosition - origin).normalized() * RAY_LENGTH
-	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(origin, end, 0b010)
-	var result = space_state.intersect_ray(query)
-	
-	# Draw result
-	line.points[1] = to_local(result.position) if result.has("position") else to_local(end)
-	
-	update_hitbox(origin, end)
+	EventBus.is_laser_shooting.connect(func(is_shooting: bool):
+		print("Is shooting: %s" % is_shooting)
+		if is_shooting:
+			var curTargetPosition = get_target_position(target.position)
+			
+			# Raycast for "infinite" ray
+			var origin = to_global(position)
+			var end = origin + (curTargetPosition - origin).normalized() * RAY_LENGTH
+			var space_state = get_world_2d().direct_space_state
+			var query = PhysicsRayQueryParameters2D.create(origin, end, 0b010)
+			var result = space_state.intersect_ray(query)
+			
+			# Draw result
+			line.points[1] = to_local(result.position) if result.has("position") else to_local(end)
+			
+			update_hitbox(origin, end))
+			
 
 func update_hitbox(origin: Vector2, end: Vector2) -> void:
 	# Get shape information
