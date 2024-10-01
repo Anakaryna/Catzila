@@ -349,3 +349,10 @@ shape = SubResource("RectangleShape2D_t8y62")
 texture = ExtResource("3_sijcb")
 region_enabled = true
 region_rect = Rect2(0, 16, 16, 16)
+
+[node name="laser_cat" parent="." instance=ExtResource("4_6lhso")]
+
+[node name="LaserShooterModule" parent="laser_cat" index="2" node_paths=PackedStringArray("target")]
+target = NodePath("../../player")
+
+[editable path="laser_cat"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx365aru1leac"]
+
+[ext_resource type="Texture2D" uid="uid://d2vnafkuhy1ny" path="res://assets/mystic_woods_free_2.2/sprites/characters/slime.png" id="1_pwmr0"]
+[ext_resource type="Script" path="res://subscenes/entities/laser_shooter_module.gd" id="2_v40fu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmu4s"]
+
+[node name="lasercat" type="CharacterBody2D"]
+
+[node name="PlaceholderTexture" type="Sprite2D" parent="."]
+texture = ExtResource("1_pwmr0")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wmu4s")
+
+[node name="LaserShooterModule" type="Node2D" parent="."]
+script = ExtResource("2_v40fu")
+
+[node name="LaserGraphics" type="Line2D" parent="LaserShooterModule"]
+default_color = Color(1, 0, 0, 1)
+
+[node name="LaserHitbox" type="Area2D" parent="LaserShooterModule"]
+collision_layer = 4
+
+[node name="LaserShape" type="CollisionPolygon2D" parent="LaserShooterModule/LaserHitbox"]
