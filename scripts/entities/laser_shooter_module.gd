@@ -72,8 +72,8 @@ func get_target_position(t_position: Vector2, is_shooting: bool) -> Vector2:
 	var angle = get_angle_to(t_position)
 	if (is_shooting):
 		curTargetAngle += clamp(angle_difference(curTargetAngle, angle), -1, 1) * RAY_ANGULAR_SPEED
-	else:
-		curTargetAngle = randf_range(-1, 1) * RAY_RETARGET_MAX_DEGREES + angle
+	# else:
+	#	curTargetAngle = randf_range(-1, 1) * RAY_RETARGET_MAX_DEGREES + angle
 	return to_global(Vector2(cos(curTargetAngle), sin(curTargetAngle)))
 
 # Since there is only one player, we can assume no other entity will trigger the laser collision
