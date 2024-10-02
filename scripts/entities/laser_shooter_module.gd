@@ -23,6 +23,8 @@ func _ready() -> void:
 	line.add_point(Vector2.ZERO)
 	
 	EventBus.is_laser_shooting.connect(func(is_shooting: bool, timing: float):
+		if (target == null):
+			return
 		line.width = RAY_MIN_WIDTH + timing * (RAY_MAX_WIDTH - RAY_MIN_WIDTH)
 		var origin = to_global(position)
 		var curTargetPosition = get_target_position(target.position, is_shooting)
