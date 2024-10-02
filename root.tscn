@@ -306,7 +306,7 @@ size = Vector2(12, 9)
 
 [node name="root" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_v78c6")
+script = ExtResource("1_ulil3")
 SPEED = 300
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -320,18 +320,18 @@ color = Color(0.25361, 0.775285, 0.585926, 1)
 unique_name_in_owner = true
 position = Vector2(499, 246)
 scale = Vector2(4, 4)
-collision_mask = 10
+collision_mask = 2
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 scale = Vector2(0.25, 0.25)
 
 [node name="shape_body" type="CollisionShape2D" parent="player"]
-position = Vector2(1, -3)
+position = Vector2(0, -5.125)
 shape = SubResource("RectangleShape2D_ujpuv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
 sprite_frames = SubResource("SpriteFrames_vp101")
-animation = &"move_up"
+animation = &"die"
 autoplay = "idle_down"
 offset = Vector2(0, -16)
 
@@ -349,7 +349,3 @@ shape = SubResource("RectangleShape2D_t8y62")
 texture = ExtResource("3_sijcb")
 region_enabled = true
 region_rect = Rect2(0, 16, 16, 16)
-
-[node name="MineTurtle" parent="." instance=ExtResource("4_md2bh")]
-
-[node name="Spider" parent="." instance=ExtResource("5_qcwto")]
