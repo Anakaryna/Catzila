@@ -6,3 +6,5 @@ signal player_was_hit
 signal connectivity_changed(online: bool)
 signal signal_damage(body: CharacterBody2D, damagePoints: float)
 signal handicap(body: CharacterBody2D)
+
+signal is_laser_shooting(is_shooting: bool, timer_percentage: float)
