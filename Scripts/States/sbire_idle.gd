@@ -4,10 +4,13 @@ class_name EnemyIdle
 @export var enemy: CharacterBody2D
 @export var move_speed := 10.0
 
+@onready var alert_icon: AnimatedSprite2D = enemy.get_node("AlertIcon") 
+@onready var alert_timer: Timer = enemy.get_node("AlertTimer")  
+
 var player: CharacterBody2D
 var move_direction: Vector2
 var wander_time: float
-var anim_direction: String = "down"  # Declare the anim_direction here
+var anim_direction: String = "down" 
 
 @onready var sprite: AnimatedSprite2D = enemy.get_node("AnimatedCat")
 
@@ -20,6 +23,8 @@ func randomize_wander():
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
 	randomize_wander()
+	alert_icon.visible = false 
+	alert_timer.timeout.connect(_on_alert_timer_timeout.bind(self))
 
 func Update(delta: float):
 	if wander_time > 0:
@@ -35,10 +40,18 @@ func Physics_Update(delta: float):
 	var direction = player.global_position - enemy.global_position
 
 	if direction.length() < 120:
-		print(direction.length())
-		print("Switching to follow state")
+		show_alert_icon()
 		Transitioned.emit(self, "follow")  # Emit transition to Follow state
 
+# Function to show the exclamation point and start the timer
+func show_alert_icon():
+	alert_icon.visible = true
+	alert_icon.play("your_exclamation_animation")  # Play the animation (if AnimatedSprite2D)
+	alert_timer.start()  # Start the 0.5 sec timer
+
+# Function to hide the exclamation point after the timer finishes
+func _on_alert_timer_timeout():
+	alert_icon.visible = false  # Hide the exclamation point when the timer finishes
 
 # Function to update animation direction
 func update_animation_direction():

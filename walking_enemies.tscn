@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=4 uid="uid://dkbte8nnegbir"]
+[gd_scene load_steps=82 format=4 uid="uid://dkbte8nnegbir"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_68mxf"]
 [ext_resource type="Texture2D" uid="uid://cbira6jw1nt7t" path="res://assets/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="2_egscg"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Scripts/sbire.gd" id="10_7j6me"]
 [ext_resource type="Texture2D" uid="uid://dmaedtj5nm33s" path="res://assets/sprites/catzila-light/catzila-light-sprites.png" id="10_o64or"]
 [ext_resource type="Script" path="res://Scripts/state_machine.gd" id="12_4ninx"]
+[ext_resource type="Texture2D" uid="uid://crdyevtygiu2u" path="res://assets/sprites/exclamation.png" id="13_jf3ng"]
 [ext_resource type="Script" path="res://Scripts/States/sbire_idle.gd" id="13_v51ol"]
 [ext_resource type="Script" path="res://Scripts/States/sbire_follow.gd" id="14_8lwgm"]
 
@@ -652,6 +653,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7l23f"]
+atlas = ExtResource("13_jf3ng")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6btcq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7l23f")
+}],
+"loop": true,
+"name": &"is_up",
+"speed": 5.0
+}]
+
 [node name="root" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_68mxf")
@@ -737,6 +753,15 @@ position = Vector2(-7.62939e-06, -7.62939e-06)
 scale = Vector2(0.408, 0.408)
 sprite_frames = SubResource("SpriteFrames_l5f7c")
 animation = &"idle_down"
+
+[node name="AlertIcon" type="AnimatedSprite2D" parent="Sbire"]
+position = Vector2(17.9844, -3.98439)
+scale = Vector2(0.176031, 0.176031)
+sprite_frames = SubResource("SpriteFrames_6btcq")
+animation = &"is_up"
+
+[node name="AlertTimer" type="Timer" parent="Sbire"]
+wait_time = 0.5
 
 [node name="State Machine" type="Node" parent="Sbire" node_paths=PackedStringArray("initial_state")]
 script = ExtResource("12_4ninx")
