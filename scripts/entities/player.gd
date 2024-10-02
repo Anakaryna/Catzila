@@ -1,8 +1,13 @@
 extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var down_attack_hit_box: Area2D = $DownAttackHitBox
+@onready var up_attack_hit_box: Area2D = $UpAttackHitBox
+@onready var left_attack_hit_box: Area2D = $LeftAttackHitBox
+@onready var right_attack_hit_box: Area2D = $RightAttackHitBox
 
 @export var SPEED = 300 # px per second
+
 
 enum MovementModifier{
 	Normal,
@@ -15,10 +20,12 @@ var anim_direction: String = "down"
 
 var movementResetTimers: Array[Timer]
 var attacking: bool = false
+var attackLanded: bool = false
 var dead: bool = false
-var player_health: float = 100
+var player_health: float = 100000
 var moveModifier: MovementModifier = MovementModifier.Normal
 var handicapTimer = 3
+var damage = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,6 +42,25 @@ func _physics_process(_dt: float) -> void:
 	processMovements()
 	# animation
 	animatePlayer()
+	processAttack()
+
+
+func processAttack():
+	if attacking and not attackLanded:
+		if anim_direction == "down":
+			down_attack_hit_box.get_overlapping_bodies().all(playerAttack)
+		elif anim_direction == "up":
+			up_attack_hit_box.get_overlapping_bodies().all(playerAttack)
+		elif anim_direction == "right" and sprite.flip_h:
+			left_attack_hit_box.get_overlapping_bodies().all(playerAttack)
+		elif anim_direction == "right" and not sprite.flip_h:
+			right_attack_hit_box.get_overlapping_bodies().all(playerAttack)
+	pass
+
+func playerAttack(body: CharacterBody2D):
+	if attacking and not attackLanded and body != self:
+		attackLanded = true
+		EventBus.signal_damage.emit(body, damage)
 
 func processMovements():
 	var ix = Input.get_axis("player_left", "player_right")
@@ -59,6 +85,7 @@ func animatePlayer():
 	elif attacking or Input.is_action_pressed("player_attack"):
 		base_anim = "attack_"
 		attacking = true
+		attackLanded = false
 	elif direction.length() < .1:
 		base_anim = "idle_"
 	else:

@@ -9,8 +9,10 @@ var target: Node2D = null
 var anim_base: String = "idle"
 var anim_direction: String = "down"
 var is_laser_shooting: bool
+var health = 100
 
 func _ready() -> void:
+	EventBus.signal_damage.connect(_on_signal_damage)
 	EventBus.is_laser_shooting.connect(func(is_laser_shooting: bool, _timing: float):
 		self.is_laser_shooting = is_laser_shooting
 	)
@@ -48,6 +50,10 @@ func animate():
 	
 	texture.animation = anim_base + "_" + anim_direction
 
+func _process(delta: float) -> void:
+	if health <= 0:
+		queue_free()
+
 func _on_target_detection(body: Node2D) -> void:
 	target = body
 	laserModule.target = target
@@ -55,3 +61,8 @@ func _on_target_detection(body: Node2D) -> void:
 
 func _on_target_exited(body: Node2D) -> void:
 	target = null
+
+
+func _on_signal_damage(body: CharacterBody2D, damagePoints: float):
+	if body == self:
+		health -= damagePoints
