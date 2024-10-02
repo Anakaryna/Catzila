@@ -6,6 +6,7 @@ class_name EnemyIdle
 
 @onready var alert_icon: AnimatedSprite2D = enemy.get_node("AlertIcon") 
 @onready var alert_timer: Timer = enemy.get_node("AlertTimer")  
+@onready var detection_sound: AudioStreamPlayer2D = enemy.get_node("DetectionSound")
 
 var player: CharacterBody2D
 var move_direction: Vector2
@@ -41,17 +42,23 @@ func Physics_Update(delta: float):
 
 	if direction.length() < 120:
 		show_alert_icon()
+		play_detection_sound()
 		Transitioned.emit(self, "follow")  # Emit transition to Follow state
 
 # Function to show the exclamation point and start the timer
 func show_alert_icon():
 	alert_icon.visible = true
-	alert_icon.play("your_exclamation_animation")  # Play the animation (if AnimatedSprite2D)
-	alert_timer.start()  # Start the 0.5 sec timer
+	alert_icon.play("your_exclamation_animation")
+	alert_timer.start()  
 
 # Function to hide the exclamation point after the timer finishes
 func _on_alert_timer_timeout():
-	alert_icon.visible = false  # Hide the exclamation point when the timer finishes
+	alert_icon.visible = false  
+	
+# Function to play the detection sound
+func play_detection_sound():
+	if detection_sound:
+		detection_sound.play() 
 
 # Function to update animation direction
 func update_animation_direction():

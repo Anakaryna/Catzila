@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=4 uid="uid://dkbte8nnegbir"]
+[gd_scene load_steps=83 format=4 uid="uid://dkbte8nnegbir"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_68mxf"]
 [ext_resource type="Texture2D" uid="uid://cbira6jw1nt7t" path="res://assets/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="2_egscg"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://crdyevtygiu2u" path="res://assets/sprites/exclamation.png" id="13_jf3ng"]
 [ext_resource type="Script" path="res://Scripts/States/sbire_idle.gd" id="13_v51ol"]
 [ext_resource type="Script" path="res://Scripts/States/sbire_follow.gd" id="14_8lwgm"]
+[ext_resource type="AudioStream" uid="uid://mvx870n7t57i" path="res://assets/sprites/meowcat.mp3" id="14_hhqhv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_62flu"]
 texture = ExtResource("9_sy5uk")
@@ -762,6 +763,9 @@ animation = &"is_up"
 
 [node name="AlertTimer" type="Timer" parent="Sbire"]
 wait_time = 0.5
+
+[node name="DetectionSound" type="AudioStreamPlayer2D" parent="Sbire"]
+stream = ExtResource("14_hhqhv")
 
 [node name="State Machine" type="Node" parent="Sbire" node_paths=PackedStringArray("initial_state")]
 script = ExtResource("12_4ninx")
