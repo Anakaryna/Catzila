@@ -560,6 +560,7 @@ offset = Vector2(0, -16)
 
 [node name="DownAttackHitBox" type="Area2D" parent="player"]
 collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/DownAttackHitBox"]
 position = Vector2(0.5, 12.9112)
@@ -567,6 +568,7 @@ shape = SubResource("RectangleShape2D_57l1v")
 
 [node name="UpAttackHitBox" type="Area2D" parent="player"]
 collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/UpAttackHitBox"]
 position = Vector2(0.5, -39.0888)
@@ -574,6 +576,7 @@ shape = SubResource("RectangleShape2D_oocqe")
 
 [node name="RightAttackHitBox" type="Area2D" parent="player"]
 collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/RightAttackHitBox"]
 position = Vector2(25.125, -9.21375)
@@ -581,6 +584,7 @@ shape = SubResource("RectangleShape2D_0e3uk")
 
 [node name="LeftAttackHitBox" type="Area2D" parent="player"]
 collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/LeftAttackHitBox"]
 position = Vector2(-24.6875, -8.839)

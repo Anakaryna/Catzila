@@ -85,7 +85,6 @@ func animatePlayer():
 	elif attacking or Input.is_action_pressed("player_attack"):
 		base_anim = "attack_"
 		attacking = true
-		attackLanded = false
 	elif direction.length() < .1:
 		base_anim = "idle_"
 	else:
@@ -111,6 +110,7 @@ func animatePlayer():
 func _on_anomation_finished() -> void:
 	if sprite.animation.begins_with("attack_"):
 		attacking = false
+		attackLanded = false
 		#print("done attacking")
 	if sprite.animation == "die":
 		dead = true
