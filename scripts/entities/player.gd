@@ -51,9 +51,9 @@ func processAttack():
 			down_attack_hit_box.get_overlapping_bodies().all(playerAttack)
 		elif anim_direction == "up":
 			up_attack_hit_box.get_overlapping_bodies().all(playerAttack)
-		elif anim_direction == "left":
+		elif anim_direction == "right" and sprite.flip_h:
 			left_attack_hit_box.get_overlapping_bodies().all(playerAttack)
-		elif anim_direction == "right":
+		elif anim_direction == "right" and not sprite.flip_h:
 			right_attack_hit_box.get_overlapping_bodies().all(playerAttack)
 	pass
 
