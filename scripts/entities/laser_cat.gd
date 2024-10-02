@@ -65,4 +65,7 @@ func _on_target_exited(body: Node2D) -> void:
 
 func _on_signal_damage(body: CharacterBody2D, damagePoints: float):
 	if body == self:
+		var tw = texture.create_tween()
+		tw.tween_property(texture, "modulate", Color.RED, .05)
+		tw.tween_property(texture, "modulate", Color.WHITE, .05)
 		health -= damagePoints

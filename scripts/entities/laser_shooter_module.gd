@@ -7,7 +7,7 @@ const RAY_ANGULAR_SPEED = 0.01
 const RAY_RETARGET_MAX_DEGREES = PI / 4
 const RAY_MIN_WIDTH = 10
 const RAY_MAX_WIDTH = 30
-const RAY_DAMAGE = 50
+const RAY_DAMAGE = 30
 
 @export var target : Node2D
 

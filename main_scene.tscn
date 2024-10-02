@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://bmbteu7ckebuu"]
+[gd_scene load_steps=63 format=4 uid="uid://bmbteu7ckebuu"]
 
 [ext_resource type="Script" path="res://scripts/root.gd" id="1_3itq7"]
 [ext_resource type="Texture2D" uid="uid://bufh1xgnyynh1" path="res://assets/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="2_nthkl"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://x25p1sue4iia" path="res://assets/Bat/attack_up.png" id="8_8gsf0"]
 [ext_resource type="Texture2D" uid="uid://df868ilfcpnnf" path="res://assets/Bat/bat_sprite.png" id="9_v2ye1"]
 [ext_resource type="PackedScene" uid="uid://cvdj0wgpgv583" path="res://subscenes/entities/sbire.tscn" id="10_0m83v"]
+[ext_resource type="PackedScene" uid="uid://h3vk46mrwuq3" path="res://mine_turtle.tscn" id="13_nylry"]
+[ext_resource type="PackedScene" uid="uid://btbdt3cuhcma3" path="res://spider.tscn" id="14_f31mt"]
 [ext_resource type="PackedScene" uid="uid://bx365aru1leac" path="res://subscenes/entities/laser_cat.tscn" id="17_ghk5j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_62flu"]
@@ -603,3 +605,19 @@ position = Vector2(1116, 170)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(2732, 118)
+
+[node name="MineTurtle" parent="." instance=ExtResource("13_nylry")]
+position = Vector2(2198.71, -619)
+
+[node name="MineTurtle2" parent="." instance=ExtResource("13_nylry")]
+position = Vector2(3788.71, 499)
+
+[node name="MineTurtle3" parent="." instance=ExtResource("13_nylry")]
+position = Vector2(3065.71, -167)
+
+[node name="MineTurtle4" parent="." instance=ExtResource("13_nylry")]
+position = Vector2(2234.71, 745)
+
+[node name="Spider" parent="." instance=ExtResource("14_f31mt")]
+z_index = 1
+position = Vector2(2599.48, -325)

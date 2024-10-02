@@ -2,6 +2,8 @@ class_name LaserCooldown
 
 extends Node2D
 
+const PEW_SOUND = preload("res://assets/homeMade/peewwwwwwww.mp3")
+
 @export var is_laser_cooldown_duration_random : bool
 @export var min_laser_cooldown_duration : float
 @export var max_laser_cooldown_duration : float
@@ -13,6 +15,8 @@ extends Node2D
 @export var max_laser_shoot_duration : float
 ## If not random, set a duration shoot for the laser
 @export var laser_shoot_duration : float
+
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var is_shooting: bool = false
 
@@ -36,6 +40,8 @@ func _process(delta: float) -> void:
 		EventBus.is_laser_shooting.emit(false, 0)
 		
 	elif cooldown_time_remaining < 0 and is_shooting == false:
+		audio.stream = PEW_SOUND
+		audio.play()
 		is_shooting = true
 		laser_shoot_time_remaining = _set_laser_shoot_duration()
 		EventBus.is_laser_shooting.emit(true, 0)

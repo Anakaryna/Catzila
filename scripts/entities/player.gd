@@ -22,7 +22,7 @@ var movementResetTimers: Array[Timer]
 var attacking: bool = false
 var attackLanded: bool = false
 var dead: bool = false
-var player_health: float = 100000
+var player_health: float = 50
 var moveModifier: MovementModifier = MovementModifier.Normal
 var handicapTimer = 3
 var damage = 10

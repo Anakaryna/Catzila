@@ -4,12 +4,13 @@ const SPIDER_LAUGH = preload("res://assets/homeMade/spider laugh.mp3")
 
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-var destination: Vector2 = Vector2(300, 200)
+var destination: Vector2
 var movementSpeed = 170
 var dieOnDestination = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	destination = position
 	pass # Replace with function body.
 
 
@@ -31,4 +32,4 @@ func collisionEnter(body):
 			audio_stream_player_2d.stream = SPIDER_LAUGH
 			audio_stream_player_2d.play()
 		dieOnDestination = true
-		destination = Vector2(500, 300)
+		destination = position + Vector2(randf_range(-100, 100), randf_range(-100, 100))

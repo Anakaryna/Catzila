@@ -1,8 +1,8 @@
 [gd_scene load_steps=37 format=3 uid="uid://bx365aru1leac"]
 
-[ext_resource type="Texture2D" uid="uid://ceey1pjwtq0up" path="res://assets/sprites/catzila/catzila-attacks-sprites.png" id="1_ryon7"]
+[ext_resource type="Texture2D" uid="uid://cnsvwgyggnhq5" path="res://assets/sprites/catzila/catzila-attacks-sprites.png" id="1_ryon7"]
 [ext_resource type="Script" path="res://scripts/entities/laser_cat.gd" id="1_tj8eh"]
-[ext_resource type="Texture2D" uid="uid://bhw17nonwd13x" path="res://assets/sprites/catzila/catzila-moves-sprites.png" id="2_pjfne"]
+[ext_resource type="Texture2D" uid="uid://ci1rqagjf87og" path="res://assets/sprites/catzila/catzila-moves-sprites.png" id="2_pjfne"]
 [ext_resource type="Script" path="res://scripts/entities/laser_shooter_module.gd" id="2_v40fu"]
 [ext_resource type="Script" path="res://scripts/entities/laser_cooldown_module.gd" id="5_jwv2g"]
 
@@ -313,6 +313,8 @@ is_laser_shoot_duration_random = true
 min_laser_shoot_duration = 1.0
 max_laser_shoot_duration = 3.0
 laser_shoot_duration = 3.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="LaserCooldown"]
 
 [connection signal="body_entered" from="LaserShooterModule/LaserHitbox" to="LaserShooterModule" method="_on_laser_hitbox_body_entered"]
 [connection signal="body_entered" from="TargetDetection" to="." method="_on_target_detection"]
