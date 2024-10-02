@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://btbdt3cuhcma3"]
+
+[ext_resource type="Script" path="res://spider.gd" id="1_36a86"]
+[ext_resource type="Texture2D" uid="uid://b43t1qngx6co0" path="res://assets/homeMade/spider.png" id="2_liqyo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccjih"]
+atlas = ExtResource("2_liqyo")
+region = Rect2(0, 0, 21, 220)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_054mt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccjih")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lsukx"]
+radius = 16.1245
+
+[node name="Spider" type="Area2D"]
+position = Vector2(614.475, 100)
+scale = Vector2(2, 2)
+collision_layer = 8
+script = ExtResource("1_36a86")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_054mt")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.264999, 100)
+shape = SubResource("CircleShape2D_lsukx")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci1rqagjf87og"
-path="res://.godot/imported/catzila-moves-sprites.png-fe9a41797d93333c31abcf0c79e8122f.ctex"
+uid="uid://d1bc4xptvw1c"
+path="res://.godot/imported/mineTurtle.png-224672b0ff4e9cd2fbcd27f09cc6ef8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/catzila/catzila-moves-sprites.png"
-dest_files=["res://.godot/imported/catzila-moves-sprites.png-fe9a41797d93333c31abcf0c79e8122f.ctex"]
+source_file="res://assets/homeMade/mineTurtle.png"
+dest_files=["res://.godot/imported/mineTurtle.png-224672b0ff4e9cd2fbcd27f09cc6ef8e.ctex"]
 
 [params]
 

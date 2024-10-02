@@ -331,7 +331,7 @@ shape = SubResource("RectangleShape2D_ujpuv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
 sprite_frames = SubResource("SpriteFrames_vp101")
-animation = &"move_up"
+animation = &"die"
 autoplay = "idle_down"
 offset = Vector2(0, -16)
 
