@@ -1,6 +1,6 @@
 [gd_scene load_steps=83 format=4 uid="uid://dkbte8nnegbir"]
 
-[ext_resource type="Script" path="res://root.gd" id="1_68mxf"]
+[ext_resource type="Script" path="res://scripts/root.gd" id="1_xmbdl"]
 [ext_resource type="Texture2D" uid="uid://cbira6jw1nt7t" path="res://assets/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="2_egscg"]
 [ext_resource type="Texture2D" uid="uid://byg5p2wkj5r7v" path="res://assets/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="3_iw6gi"]
 [ext_resource type="Texture2D" uid="uid://dkdiijoh4vgii" path="res://assets/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png" id="4_e82mh"]
@@ -10,12 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://df868ilfcpnnf" path="res://assets/Bat/bat_sprite.png" id="7_s0mu0"]
 [ext_resource type="Texture2D" uid="uid://b1spsq2veqrk4" path="res://assets/mystic_woods_free_2.2/sprites/objects/objects.png" id="8_w3cqd"]
 [ext_resource type="Texture2D" uid="uid://bufh1xgnyynh1" path="res://assets/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="9_sy5uk"]
-[ext_resource type="Script" path="res://Scripts/sbire.gd" id="10_7j6me"]
+[ext_resource type="Script" path="res://scripts/sbire.gd" id="10_7j6me"]
 [ext_resource type="Texture2D" uid="uid://co5klrvyw8jku" path="res://assets/sprites/catzila-light/catzila-light-sprites.png" id="10_o64or"]
-[ext_resource type="Script" path="res://Scripts/state_machine.gd" id="12_4ninx"]
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="12_4ninx"]
 [ext_resource type="Texture2D" uid="uid://crdyevtygiu2u" path="res://assets/sprites/exclamation.png" id="13_jf3ng"]
-[ext_resource type="Script" path="res://Scripts/States/sbire_idle.gd" id="13_v51ol"]
-[ext_resource type="Script" path="res://Scripts/States/sbire_follow.gd" id="14_8lwgm"]
+[ext_resource type="Script" path="res://scripts/States/sbire_idle.gd" id="13_v51ol"]
+[ext_resource type="Script" path="res://scripts/States/sbire_follow.gd" id="14_8lwgm"]
 [ext_resource type="AudioStream" uid="uid://mvx870n7t57i" path="res://assets/sprites/meowcat.mp3" id="14_hhqhv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_62flu"]
@@ -671,8 +671,7 @@ animations = [{
 
 [node name="root" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_68mxf")
-SPEED = 300
+script = ExtResource("1_xmbdl")
 
 [node name="Background" type="TileMapLayer" parent="."]
 y_sort_enabled = true
