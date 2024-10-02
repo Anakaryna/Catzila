@@ -25,7 +25,7 @@ func Enter():
 	player = get_tree().get_first_node_in_group("Player")
 	randomize_wander()
 	alert_icon.visible = false 
-	alert_timer.timeout.connect(_on_alert_timer_timeout.bind(self))
+
 
 func Update(delta: float):
 	if wander_time > 0:
@@ -48,7 +48,6 @@ func Physics_Update(delta: float):
 # Function to show the exclamation point and start the timer
 func show_alert_icon():
 	alert_icon.visible = true
-	alert_icon.play("your_exclamation_animation")
 	alert_timer.start()  
 
 # Function to hide the exclamation point after the timer finishes
