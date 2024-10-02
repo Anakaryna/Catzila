@@ -1,10 +1,11 @@
-[gd_scene load_steps=56 format=4 uid="uid://bmbteu7ckebuu"]
+[gd_scene load_steps=57 format=4 uid="uid://bmbteu7ckebuu"]
 
 [ext_resource type="Script" path="res://scripts/root.gd" id="1_3itq7"]
 [ext_resource type="Texture2D" uid="uid://bufh1xgnyynh1" path="res://assets/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="2_nthkl"]
 [ext_resource type="Texture2D" uid="uid://cbira6jw1nt7t" path="res://assets/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="3_jod2i"]
 [ext_resource type="Texture2D" uid="uid://dkdiijoh4vgii" path="res://assets/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png" id="4_g45h7"]
 [ext_resource type="Texture2D" uid="uid://byg5p2wkj5r7v" path="res://assets/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="5_qllq0"]
+[ext_resource type="Script" path="res://scripts/entities/player.gd" id="6_7hfoo"]
 [ext_resource type="Texture2D" uid="uid://7xvtotfsufbg" path="res://assets/Bat/attack_down.png" id="6_54l4o"]
 [ext_resource type="Texture2D" uid="uid://muiwuunr4qqo" path="res://assets/Bat/attack_right.png" id="7_co4o2"]
 [ext_resource type="Texture2D" uid="uid://x25p1sue4iia" path="res://assets/Bat/attack_up.png" id="8_8gsf0"]
@@ -494,7 +495,6 @@ animations = [{
 [node name="root" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_3itq7")
-SPEED = 1000
 
 [node name="Background" type="TileMapLayer" parent="."]
 y_sort_enabled = true
@@ -528,6 +528,7 @@ y_sort_enabled = true
 position = Vector2(499, 428)
 scale = Vector2(4, 4)
 collision_mask = 2
+script = ExtResource("6_7hfoo")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 scale = Vector2(0.25, 0.25)
