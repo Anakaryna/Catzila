@@ -8,3 +8,4 @@ signal signal_damage(body: CharacterBody2D, damagePoints: float)
 signal handicap(body: CharacterBody2D)
 
 signal is_laser_shooting(is_shooting: bool, timer_percentage: float)
+signal is_catzila_cloning(is_cloned: bool, timer: float)

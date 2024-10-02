@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://bmbteu7ckebuu"]
+[gd_scene load_steps=65 format=4 uid="uid://bmbteu7ckebuu"]
 
 [ext_resource type="Script" path="res://scripts/root.gd" id="1_3itq7"]
 [ext_resource type="Texture2D" uid="uid://bufh1xgnyynh1" path="res://assets/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="2_nthkl"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://cvdj0wgpgv583" path="res://subscenes/entities/sbire.tscn" id="10_0m83v"]
 [ext_resource type="PackedScene" uid="uid://h3vk46mrwuq3" path="res://mine_turtle.tscn" id="13_nylry"]
 [ext_resource type="PackedScene" uid="uid://btbdt3cuhcma3" path="res://spider.tscn" id="14_f31mt"]
+[ext_resource type="Script" path="res://scripts/entities/cat_cloning_module.gd" id="15_awsu8"]
+[ext_resource type="Script" path="res://scripts/entities/cat_cloning_cooldown_module.gd" id="16_3m8yj"]
 [ext_resource type="PackedScene" uid="uid://bx365aru1leac" path="res://subscenes/entities/laser_cat.tscn" id="17_ghk5j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_62flu"]
@@ -621,3 +623,19 @@ position = Vector2(2234.71, 745)
 [node name="Spider" parent="." instance=ExtResource("14_f31mt")]
 z_index = 1
 position = Vector2(2599.48, -325)
+
+[node name="CatCloning" type="Node2D" parent="." node_paths=PackedStringArray("original_cat")]
+script = ExtResource("15_awsu8")
+maximum_number_of_cloned_cat = 1.0
+original_cat = NodePath("../lasercat")
+
+[node name="CatCloningCooldown" type="Node2D" parent="."]
+script = ExtResource("16_3m8yj")
+is_cat_cloning_cooldown_duration_random = true
+min_cat_cloning_cooldown_duration = 10.0
+max_cat_cloning_cooldown_duration = 30.0
+cat_cloning_cooldown_duration = 20.0
+is_cloned_cat_duration_random = true
+min_cloned_cat_duration = 10.0
+max_cloned_cat_duration = 20.0
+cloned_cat_duration = 10.0
