@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=4 uid="uid://dkbte8nnegbir"]
+[gd_scene load_steps=84 format=4 uid="uid://dkbte8nnegbir"]
 
 [ext_resource type="Script" path="res://scripts/root.gd" id="1_xmbdl"]
 [ext_resource type="Texture2D" uid="uid://cbira6jw1nt7t" path="res://assets/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="2_egscg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://7xvtotfsufbg" path="res://assets/Bat/attack_down.png" id="4_igom6"]
 [ext_resource type="Texture2D" uid="uid://muiwuunr4qqo" path="res://assets/Bat/attack_right.png" id="5_gfvb3"]
 [ext_resource type="Texture2D" uid="uid://x25p1sue4iia" path="res://assets/Bat/attack_up.png" id="6_5847j"]
+[ext_resource type="Script" path="res://scripts/entities/player.gd" id="6_ypvfm"]
 [ext_resource type="Texture2D" uid="uid://df868ilfcpnnf" path="res://assets/Bat/bat_sprite.png" id="7_s0mu0"]
 [ext_resource type="Texture2D" uid="uid://b1spsq2veqrk4" path="res://assets/mystic_woods_free_2.2/sprites/objects/objects.png" id="8_w3cqd"]
 [ext_resource type="Texture2D" uid="uid://bufh1xgnyynh1" path="res://assets/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="9_sy5uk"]
@@ -705,6 +706,7 @@ y_sort_enabled = true
 position = Vector2(499, 246)
 scale = Vector2(4, 4)
 collision_mask = 2
+script = ExtResource("6_ypvfm")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 scale = Vector2(0.25, 0.25)
