@@ -26,14 +26,14 @@ var handicapTimer = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var mine = MINE_TURTLE.instantiate()
-	mine.destination = Vector2(500, 0)
-	mine.player = player
-	add_child(mine)
+	#var mine = MINE_TURTLE.instantiate()
+	#mine.destination = Vector2(500, 0)
+	#mine.player = player
+	#add_child(mine)
 	
-	var spider = SPIDER.instantiate()
-	spider.destination = Vector2(300, 400)
-	add_child(spider)
+	#var spider = SPIDER.instantiate()
+	#spider.destination = Vector2(300, 400)
+	#add_child(spider)
 	
 	EventBus.signal_damage.connect(_on_signal_damage)
 	EventBus.handicap.connect(_on_handicap)

@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b1spsq2veqrk4" path="res://assets/mystic_woods_free_2.2/sprites/objects/objects.png" id="8_w3cqd"]
 [ext_resource type="Texture2D" uid="uid://bufh1xgnyynh1" path="res://assets/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="9_sy5uk"]
 [ext_resource type="Script" path="res://Scripts/sbire.gd" id="10_7j6me"]
-[ext_resource type="Texture2D" uid="uid://dmaedtj5nm33s" path="res://assets/sprites/catzila-light/catzila-light-sprites.png" id="10_o64or"]
+[ext_resource type="Texture2D" uid="uid://co5klrvyw8jku" path="res://assets/sprites/catzila-light/catzila-light-sprites.png" id="10_o64or"]
 [ext_resource type="Script" path="res://Scripts/state_machine.gd" id="12_4ninx"]
 [ext_resource type="Texture2D" uid="uid://crdyevtygiu2u" path="res://assets/sprites/exclamation.png" id="13_jf3ng"]
 [ext_resource type="Script" path="res://Scripts/States/sbire_idle.gd" id="13_v51ol"]
