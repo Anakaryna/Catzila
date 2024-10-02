@@ -7,6 +7,7 @@ const RAY_ANGULAR_SPEED = 0.01
 const RAY_RETARGET_MAX_DEGREES = PI / 4
 const RAY_MIN_WIDTH = 10
 const RAY_MAX_WIDTH = 30
+const RAY_DAMAGE = 50
 
 @export var target : Node2D
 
@@ -34,7 +35,7 @@ func _ready() -> void:
 			
 			# Draw result
 			line.points[1] = to_local(result.position) if result.has("position") else to_local(end)
-			laser_vector = end - origin
+			laser_vector = (result.position if result.has("position") else end) - origin
 		else:
 			line.points[1] = Vector2.ZERO
 			laser_vector = Vector2.ZERO
@@ -73,5 +74,6 @@ func get_target_position(t_position: Vector2, is_shooting: bool) -> Vector2:
 		curTargetAngle = randf_range(-1, 1) * RAY_RETARGET_MAX_DEGREES + angle
 	return to_global(Vector2(cos(curTargetAngle), sin(curTargetAngle)))
 
+# Since there is only one player, we can assume no other entity will trigger the laser collision
 func _on_laser_hitbox_body_entered(body: Node2D) -> void:
-	print("Hit!")
+	EventBus.signal_damage.emit(body, RAY_DAMAGE)
