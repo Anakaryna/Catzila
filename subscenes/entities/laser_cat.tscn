@@ -1,9 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://bx365aru1leac"]
+[gd_scene load_steps=37 format=3 uid="uid://bx365aru1leac"]
 
-[ext_resource type="Texture2D" uid="uid://dn8fxsxqxvlr5" path="res://assets/sprites/catzila/catzila-attacks-sprites.png" id="1_ryon7"]
+[ext_resource type="Texture2D" uid="uid://cbb03p044l7qb" path="res://assets/sprites/catzila/catzila-attacks-sprites.png" id="1_ryon7"]
 [ext_resource type="Script" path="res://scripts/entities/laser_cat.gd" id="1_tj8eh"]
-[ext_resource type="Texture2D" uid="uid://kumt2kag7fh8" path="res://assets/sprites/catzila/catzila-moves-sprites.png" id="2_pjfne"]
+[ext_resource type="Texture2D" uid="uid://k1e0f83pep3k" path="res://assets/sprites/catzila/catzila-moves-sprites.png" id="2_pjfne"]
 [ext_resource type="Script" path="res://scripts/entities/laser_shooter_module.gd" id="2_v40fu"]
+[ext_resource type="Script" path="res://scripts/entities/laser_cooldown_module.gd" id="5_jwv2g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fnw1u"]
 atlas = ExtResource("1_ryon7")
@@ -302,6 +303,17 @@ collision_layer = 4
 [node name="DetectionRadius" type="CollisionShape2D" parent="TargetDetection"]
 shape = SubResource("CircleShape2D_d0trq")
 
-[connection signal="area_entered" from="LaserShooterModule/LaserHitbox" to="LaserShooterModule" method="_on_laser_entered"]
+[node name="LaserCooldown" type="Node2D" parent="."]
+script = ExtResource("5_jwv2g")
+is_laser_cooldown_duration_random = true
+min_laser_cooldown_duration = 1.0
+max_laser_cooldown_duration = 3.0
+laser_cooldown_duration = 3.0
+is_laser_shoot_duration_random = true
+min_laser_shoot_duration = 1.0
+max_laser_shoot_duration = 3.0
+laser_shoot_duration = 3.0
+
+[connection signal="body_entered" from="LaserShooterModule/LaserHitbox" to="LaserShooterModule" method="_on_laser_hitbox_body_entered"]
 [connection signal="body_entered" from="TargetDetection" to="." method="_on_target_detection"]
 [connection signal="body_exited" from="TargetDetection" to="." method="_on_target_exited"]

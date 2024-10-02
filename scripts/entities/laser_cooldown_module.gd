@@ -33,22 +33,22 @@ func _process(delta: float) -> void:
 	if cooldown_time_remaining >= 0:
 		is_shooting = false
 		cooldown_time_remaining = cooldown_time_remaining - delta
-		EventBus.is_laser_shooting.emit(false)
+		EventBus.is_laser_shooting.emit(false, 0)
 		
 	elif cooldown_time_remaining < 0 and is_shooting == false:
 		is_shooting = true
 		laser_shoot_time_remaining = _set_laser_shoot_duration()
-		EventBus.is_laser_shooting.emit(true)
+		EventBus.is_laser_shooting.emit(true, 0)
 		
 	elif laser_shoot_time_remaining >= 0:
 		is_shooting = true
 		laser_shoot_time_remaining = laser_shoot_time_remaining - delta
-		EventBus.is_laser_shooting.emit(true)
+		EventBus.is_laser_shooting.emit(true, 1 - laser_shoot_time_remaining / laser_shoot_duration)
 		
 	elif laser_shoot_time_remaining < 0:
 		is_shooting = false
 		cooldown_time_remaining = _set_laser_cooldown_duration()
-		EventBus.is_laser_shooting.emit(false)
+		EventBus.is_laser_shooting.emit(false, 1 - laser_shoot_time_remaining / laser_shoot_duration)
 		
 
 func _set_laser_cooldown_duration() -> float:
@@ -59,6 +59,6 @@ func _set_laser_cooldown_duration() -> float:
 
 func _set_laser_shoot_duration() -> float:
 	if is_laser_shoot_duration_random:
-			laser_shoot_duration = rng.randf_range(min_laser_shoot_duration, max_laser_shoot_duration)
+		laser_shoot_duration = rng.randf_range(min_laser_shoot_duration, max_laser_shoot_duration)
 		
 	return laser_shoot_duration

@@ -8,6 +8,12 @@ const SPEED = 90
 var target: Node2D = null
 var anim_base: String = "idle"
 var anim_direction: String = "down"
+var is_laser_shooting: bool
+
+func _ready() -> void:
+	EventBus.is_laser_shooting.connect(func(is_laser_shooting: bool, _timing: float):
+		self.is_laser_shooting = is_laser_shooting
+	)
 
 func _physics_process(delta: float) -> void:
 	var input = get_movement_direction()
@@ -27,7 +33,7 @@ func get_movement_direction() -> Vector2:
 func animate():
 	if (target):
 		# Update direction
-		anim_base = "attack"
+		anim_base = "attack" if is_laser_shooting else "move"
 		var angle = get_angle_to(target.position)
 		if (-PI / 4 <= angle && angle < PI / 4):
 			anim_direction = "right"
@@ -40,7 +46,6 @@ func animate():
 	else:
 		anim_base = "idle"
 	
-	print(target)
 	texture.animation = anim_base + "_" + anim_direction
 
 func _on_target_detection(body: Node2D) -> void:
