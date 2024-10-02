@@ -105,6 +105,9 @@ func _on_signal_damage(body: CharacterBody2D, damagePoints: float) -> void:
 	if body == player:
 		#print("im bleeding")
 		player_health -= damagePoints
+		var tw = sprite.create_tween()
+		tw.tween_property(sprite, "modulate", Color.RED, .05)
+		tw.tween_property(sprite, "modulate", Color.WHITE, .05)
 	pass # Replace with function body.
 
 func _on_handicap(body: CharacterBody2D):

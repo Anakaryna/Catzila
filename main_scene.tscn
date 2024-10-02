@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://bmbteu7ckebuu"]
+[gd_scene load_steps=82 format=4 uid="uid://bmbteu7ckebuu"]
 
 [ext_resource type="Script" path="res://scripts/root.gd" id="1_3itq7"]
 [ext_resource type="Texture2D" uid="uid://bufh1xgnyynh1" path="res://assets/Sprout Lands - Sprites - Basic pack/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="2_nthkl"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="15_8wtbc"]
 [ext_resource type="Script" path="res://scripts/States/sbire_idle.gd" id="16_05isd"]
 [ext_resource type="Script" path="res://scripts/States/sbire_follow.gd" id="17_fx2dr"]
+[ext_resource type="PackedScene" uid="uid://bx365aru1leac" path="res://subscenes/entities/laser_cat.tscn" id="17_ghk5j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_62flu"]
 texture = ExtResource("2_nthkl")
@@ -847,3 +848,6 @@ enemy = NodePath("../..")
 [node name="Follow" type="Node" parent="Sbire3/State Machine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("17_fx2dr")
 enemy = NodePath("../..")
+
+[node name="lasercat" parent="." instance=ExtResource("17_ghk5j")]
+position = Vector2(2732, 118)
