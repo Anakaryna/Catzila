@@ -6,7 +6,7 @@ class_name Sbire
 
 @onready var sprite: AnimatedSprite2D = $AnimatedCat
 
-var health = 100
+var health = 50
 
 func _ready() -> void:
 	EventBus.signal_damage.connect(_on_signal_damage)
