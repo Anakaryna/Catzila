@@ -1,5 +1,8 @@
 extends Area2D
 
+const SPIDER_LAUGH = preload("res://assets/homeMade/spider laugh.mp3")
+
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var destination: Vector2 = Vector2(300, 200)
 var movementSpeed = 170
@@ -24,5 +27,8 @@ func _process(delta: float) -> void:
 func collisionEnter(body):
 	if !dieOnDestination:
 		EventBus.handicap.emit(body)
+		if not audio_stream_player_2d.playing:
+			audio_stream_player_2d.stream = SPIDER_LAUGH
+			audio_stream_player_2d.play()
 		dieOnDestination = true
 		destination = Vector2(500, 300)

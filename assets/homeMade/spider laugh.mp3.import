@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ckdqjkf6dqf"
+path="res://.godot/imported/spider laugh.mp3-df2cb7e58525c735db5bbdeedcd8273f.mp3str"
+
+[deps]
+
+source_file="res://assets/homeMade/spider laugh.mp3"
+dest_files=["res://.godot/imported/spider laugh.mp3-df2cb7e58525c735db5bbdeedcd8273f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
