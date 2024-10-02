@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci1rqagjf87og"
-path="res://.godot/imported/catzila-moves-sprites.png-fe9a41797d93333c31abcf0c79e8122f.ctex"
+uid="uid://c1d8bpqvca6xi"
+path="res://.godot/imported/Catzila.png-b1812743cdbdf04dd91a224bf54f0102.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/catzila/catzila-moves-sprites.png"
-dest_files=["res://.godot/imported/catzila-moves-sprites.png-fe9a41797d93333c31abcf0c79e8122f.ctex"]
+source_file="res://assets/sprites/catzila/Catzila.png"
+dest_files=["res://.godot/imported/Catzila.png-b1812743cdbdf04dd91a224bf54f0102.ctex"]
 
 [params]
 
